@@ -15,16 +15,24 @@ class _NewTransactionState extends State<NewTransaction> {
   DateTime _selectedDate;
 
   void _submitData() {
+    if (_amountController.text.isEmpty) {
+      return;
+    }
+
     final enteredTitle = _titleController.text;
     final enteredAmount = double.parse(_amountController.text);
 
-    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+    if (enteredTitle.isEmpty || enteredAmount <= 0 || _selectedDate == null) {
       return;
     }
 
     // widget. -> allows you to access class properties of a widget, even if you're in a different class.
     // only available in state classes
-    widget.addTransaction(enteredTitle, enteredAmount);
+    widget.addTransaction(
+      enteredTitle,
+      enteredAmount,
+      _selectedDate,
+    );
 
     // closes the top most screen. In this case, it is the modal. Closes after submission.
     Navigator.of(context).pop();
