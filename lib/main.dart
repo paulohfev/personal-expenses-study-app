@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart';
 import 'package:flutter_complete_guide/widgets/transaction_list.dart';
 import './widgets/new_transaction.dart';
 import './widgets/chart.dart';
 import './models/transaction.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  // // ensures the preferred orientations works on some devices.
+  // WidgetsFlutterBinding.ensureInitialized();
+  // // ensures that the application doesn't change layout via landscape mode.
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown,
+  // ]);
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
